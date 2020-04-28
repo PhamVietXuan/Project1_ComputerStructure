@@ -18,5 +18,13 @@
     <ClCompile Include="Đồ Án 1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="floatingPoint.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="floatingPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
