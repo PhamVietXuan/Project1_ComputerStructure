@@ -19,3 +19,4 @@ int mod2(string bigNum);
 int binToDec(string bit);
 string chia2(string bigNum);
 string pow( int n);//return 2^n
+string addFloat(string a, string b);

@@ -230,3 +230,37 @@ string pow( int n)
     }
 
 }
+string addFloat(string a, string b)
+{
+   
+    //if integer part of both not equal, '0' will be add to the head of the string which has shorter integer part. 
+    while (a.find('.') < b.find('.'))
+        a = '0' + a;
+    while (a.find('.') > b.find('.'))
+        b = '0' + b;
+    
+    //if the real part of the two string not equal, '0' will be add to the last of the shorter string
+    while (a.length() < b.length())
+        a += '0';
+    while (a.length() > b.length())
+        b += '0';
+    int nho = 0;
+    string res = "";
+    for (int i = a.length() - 1; i >= 0; i--)
+    {
+        if (a[i] != '.')
+        {
+            char kq = 0;
+            kq = a[i] + b[i] + nho - 2 * '0';
+            nho = kq / 10;
+            kq = kq % 10;
+            res = (char)(kq + '0') + res;
+        }
+        else res = '.' + res;
+    }
+
+    if (nho == 1)
+        res = '1' + res;
+
+    return res;
+}

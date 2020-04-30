@@ -4,9 +4,8 @@
 using namespace std;
 void main()
 {
-	int n;
-	cout << "Enter n: ";
-	cin >> n;
-	for(int i=-n; i<n; i++)
-		cout <<"2^"<<n<<" = "<< pow(i) << endl;
+	string a = "0.1";
+	string b = "0.9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999";
+
+	cout<<addFloat(a, b);
 }
