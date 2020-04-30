@@ -4,9 +4,9 @@ int binToDec(string bit)//convert binary to integer number
 // bit.length() = 15: exponent
 {
     int x = 0;
-    for (int i = 0; i < 15; i++)
+    for (int i = 0; i < bit.length(); i++)
     {
-        x = x | ((bit[i] - '0') << (14 - i));
+        x = x | ((bit[i] - '0') << (bit.length()-1 - i));
     }
     return x;
 }
@@ -206,4 +206,27 @@ string chia2(string bigNum)
         }
     while (kq[0] == '0' && kq[1] != 0 && (kq.length() > 1) && kq[1] != '.') kq.erase(0, 1);
     return kq;
+}
+
+string pow( int n)
+{
+    if (n == 0) return "1";
+    string res = "1";
+    if (n > 0)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            res = nhanChuoiVoi2(res);
+        }
+        return res;
+    }
+    if (n < 0)
+    {
+        for (int i = 0; i < -n; i++)
+        {
+            res = chia2(res);
+        }
+        return res;
+    }
+
 }

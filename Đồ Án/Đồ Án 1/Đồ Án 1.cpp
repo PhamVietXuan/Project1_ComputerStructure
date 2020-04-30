@@ -4,9 +4,9 @@
 using namespace std;
 void main()
 {
-	string str;
-	cin >> str;
-	string a = chia2(str);
-
-	cout << a << endl;
+	int n;
+	cout << "Enter n: ";
+	cin >> n;
+	for(int i=-n; i<n; i++)
+		cout <<"2^"<<n<<" = "<< pow(i) << endl;
 }
