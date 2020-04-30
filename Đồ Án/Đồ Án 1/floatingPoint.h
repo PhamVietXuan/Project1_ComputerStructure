@@ -13,5 +13,8 @@ private:
 
 string nhanChuoiVoi2(string bigNum);
 int stringToInt(string numStr);
+string intToString(int num);
 string div2(string bigNum);
 int mod2(string bigNum);
+int binToDec(string bit);
+string chia2(string bigNum);

@@ -1,14 +1,16 @@
 #include <iostream>
 using namespace std;
-char binToDec(char a[8])//convert binary to integer number
+int binToDec(string bit)//convert binary to integer number
+// bit.length() = 15: exponent
 {
-    char x = 0;
-    for (int i = 0; i < 8; i++)
+    int x = 0;
+    for (int i = 0; i < 15; i++)
     {
-        x = x | (a[i] << (7 - i));
+        x = x | ((bit[i] - '0') << (14 - i));
     }
     return x;
 }
+
 void decToBin(char n)
 {
     char a[8] = { 0 };
@@ -60,6 +62,7 @@ string nhanChuoiVoi2(string bigNum)//multiple a string by 2
         kq = "-" + kq;
     return kq;
 }
+
 int stringToInt(string numStr)// convert a string to number 
 {
     int num = 0;
@@ -106,7 +109,7 @@ string div2(string bigNum)
     string num = "0";
     int i = 0;
     int n = bigNum.size();
-    while (i<n)//divison 
+    while (i<n)//division 
     {
         if (stringToInt(num) < 2)
         {
@@ -130,4 +133,77 @@ string div2(string bigNum)
 int mod2(string bigNum)
 {
     return ((bigNum[bigNum.size() - 1] - '0') % 2);
+}
+string intToString(int num)
+{
+    int n = num;
+    string kq = "";
+    while (n > 0)
+    {
+        kq += (char)(n % 2 + '0');
+        n = n / 2;
+    }
+    return kq;
+}
+string chia2(string bigNum)
+{
+    if (bigNum == "0") return "0";
+    string strNum = "";
+    strNum += bigNum[0];
+    int num = stringToInt(strNum);;
+    int i = 1; 
+    bool ok = 0;
+    string kq = "0";
+    
+        while ((i < bigNum.length()) || (i >= bigNum.length() && num > 0))
+        {
+
+            if ((i >= bigNum.length()) && (ok == 0))
+            {
+                kq += '.';
+                ok = 1;
+            }
+
+            if (num < 2)
+            {
+                if (i < bigNum.length())
+                {
+                    if (bigNum[i] != '.' )
+                    {
+
+                        strNum += bigNum[i];
+                        num = stringToInt(strNum);
+                        kq += (char)(num / 2 + '0');
+
+                        strNum = intToString(num % 2);
+                        num = num % 2;
+                        i++;
+                    }
+                    else
+                    {
+                        ok = 1;
+                        kq += '.';
+                        i++;
+                    }
+                }
+                else
+                {
+                    strNum += '0';
+                    num = stringToInt(strNum);
+                    kq += (char)(num / 2 + '0');
+                    strNum = intToString(num % 2);
+                    num = num % 2;
+   
+                    i++;
+                }
+            }
+            else
+            {
+                kq += (char)(num / 2 + '0');
+                strNum = intToString(num % 2);
+                num = num % 2;
+            }
+        }
+    while (kq[0] == '0' && kq[1] != 0 && (kq.length() > 1) && kq[1] != '.') kq.erase(0, 1);
+    return kq;
 }
