@@ -225,14 +225,14 @@ void Qfloat::ScanQfloat() {
 			}
 		}
 
-		if ((Point < -127) || (Point > 127)) {
+		if ((Point < -16383) || (Point > 16383)) {
 			cout << "*****************************************\n";
 			cout << "Thong bao: Tran so!\n";
 			cout << "*****************************************\n";
 			return;
 		}
 
-		Point += 127;
+		Point += 16383;
 
 		for (int i = 15; i > 0; i--) {
 			if (Point % 2 == 1) { data[0] = data[0] | (1 << (INTLENGT - 1 - i)); }
