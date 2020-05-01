@@ -264,3 +264,57 @@ string addFloat(string a, string b)
 
     return res;
 }
+int setBit1(int x, int i)
+{
+    return ((1 << (31 - i)) | x);
+}
+int getBit(int x, int i)
+{
+    return ((x >> (31 - i)) & 1);
+}
+void binToQfloat(int bin[4])
+{
+    string kq = "";
+   
+    kq += '1';
+
+    string exp = "";
+
+    for (int i = 1; i <= 15; i++)
+    {
+        exp += (char)(getBit(bin[0], i) + '0');
+    }
+   
+    int E = binToDec(exp) - 32768;
+    
+    string value = "";
+    for (int i = 16; i < 128; i++)
+    {
+        value += (char)(getBit(bin[i / 32], i % 32)+'0');
+    }
+
+    string M = "0.0";
+    for (int i = 0; i < value.length(); i++)
+    {
+            if (value[i] == '1')
+            M = addFloat(M, pow(-(i + 1)));
+
+    }
+    M[0] = '1';
+    kq = M;
+    if (E >= 0)
+    {
+        for (int i = 1; i <= E; i++)
+            kq = nhanChuoiVoi2(kq);
+    }
+    if (E < 0)
+    {
+        for (int i = 0; i < -E; i++)
+        {
+            kq = chia2(kq);
+        }
+    }
+    cout << M << endl<<E<<endl;
+    cout << kq;
+    return;
+}

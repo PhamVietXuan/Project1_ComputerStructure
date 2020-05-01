@@ -4,8 +4,10 @@
 using namespace std;
 void main()
 {
-	string a = "0.1";
-	string b = "0.9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999";
-
-	cout<<addFloat(a, b);
+	int a = 2147418112;
+	int bin[4] = {0,0,5663,0};
+	a = setBit1(a, 16);
+	a = setBit1(a, 18);
+	bin[0] = a;
+	binToQfloat(bin);
 }
