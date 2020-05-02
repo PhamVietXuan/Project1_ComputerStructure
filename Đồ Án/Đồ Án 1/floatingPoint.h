@@ -7,10 +7,11 @@ using namespace std;
 class floatingPoint
 {
 private:
-	int data[4] = { 0, 0, 0, 0 };
-
+	int data[4] = {536165, 56165, 0, 0 };
+public:
+	void printQfloat();
 };
-
+string decToBin(string dec);
 string nhanChuoiVoi2(string bigNum);
 int stringToInt(string numStr);
 string intToString(int num);
@@ -22,4 +23,5 @@ string pow( int n);//return 2^n
 string addFloat(string a, string b);
 int setBit1(int x, int i);
 int getBit(int x, int i);
-void binToQfloat(int bin[4]);
+string binToQfloat(int bin[4]);
+

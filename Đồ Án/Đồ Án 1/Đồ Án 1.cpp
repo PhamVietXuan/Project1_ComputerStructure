@@ -1,13 +1,14 @@
 ﻿#include <iostream>
+#include <string.h>
+#include <stdio.h>
+#include "conio.h"
+//#include "Qfloat.h"
 #include "floatingPoint.h"
-
 using namespace std;
-void main()
+
+int main()
 {
-	int a = 2147418112;
-	int bin[4] = {0,0,5663,0};
-	a = setBit1(a, 16);
-	a = setBit1(a, 18);
-	bin[0] = a;
-	binToQfloat(bin);
+	
+	int bin[4] = {3487562106,2513551313103,12316532,1532654161 };
+	cout << binToQfloat(bin);
 }

@@ -1,5 +1,14 @@
 #include <iostream>
+#include "floatingPoint.h";
+
 using namespace std;
+
+
+void floatingPoint::printQfloat()
+{
+    cout << binToQfloat(this->data);
+
+}
 int binToDec(string bit)//convert binary to integer number
 // bit.length() = 15: exponent
 {
@@ -11,17 +20,18 @@ int binToDec(string bit)//convert binary to integer number
     return x;
 }
 
-void decToBin(char n)
+string decToBin(string dec)
 {
-    char a[8] = { 0 };
-    for (int i = 0; i < sizeof(n) * 8; i++)
+    string bin = "";
+    if (dec == "0")
+        return "0";
+    while (dec != "0")
     {
-        a[sizeof(n) * 8 - 1 - i] = ((n >> i) & 1);
+        bin = (char)(mod2(dec)+'0')+bin;
+        dec = div2(dec);
     }
 
-    for (int i = 0; i < 8; i++)
-        cout << (int)a[i];
-    cout << endl;
+    return bin;
 }
 string nhanChuoiVoi2(string bigNum)//multiple a string by 2
 {
@@ -272,7 +282,7 @@ int getBit(int x, int i)
 {
     return ((x >> (31 - i)) & 1);
 }
-void binToQfloat(int bin[4])
+string binToQfloat(int bin[4])
 {
     string kq = "";
    
@@ -285,7 +295,7 @@ void binToQfloat(int bin[4])
         exp += (char)(getBit(bin[0], i) + '0');
     }
    
-    int E = binToDec(exp) - 32768;
+    int E = binToDec(exp) - 16384;
     
     string value = "";
     for (int i = 16; i < 128; i++)
@@ -314,7 +324,8 @@ void binToQfloat(int bin[4])
             kq = chia2(kq);
         }
     }
-    cout << M << endl<<E<<endl;
-    cout << kq;
-    return;
+    cout << E << endl;
+    if (getBit(bin[0], 0) == '1')
+        kq = '-' + kq;
+    return kq;
 }

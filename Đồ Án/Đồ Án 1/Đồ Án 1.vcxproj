@@ -148,10 +148,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="floatingPoint.cpp" />
+    <ClCompile Include="Qfloat.cpp" />
     <ClCompile Include="Đồ Án 1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="floatingPoint.h" />
+    <ClInclude Include="Qfloat.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
