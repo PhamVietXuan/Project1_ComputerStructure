@@ -87,7 +87,7 @@ void Qfloat::ScanQfloat() {
 		int z;
 		cout << "*****************************************\n";
 		cout << "1. Nhap dang cham thuong (Nhan 1)\n";
-		cout << "2. Nhap dang (+/-) 1.F*2^E\n";
+		cout << "2. Nhap dang (+/-) 1.F*2^E (Nhan 2)\n";
 		cout << "*****************************************\n";
 		cout << "Nhap lua chon cua ban: ";
 		cin >> z;
@@ -188,7 +188,7 @@ void Qfloat::ScanQfloat() {
 		int z;
 		cout << "*****************************************\n";
 		cout << "1. Nhap dang cham thuong (Nhan 1)\n";
-		cout << "2. Nhap dang (+/-) A.B*10^X\n";
+		cout << "2. Nhap dang (+/-) A.B*10^X (Nhan 2)\n";
 		cout << "*****************************************\n";
 		cout << "Nhap lua chon cua ban: ";
 		cin >> z;
