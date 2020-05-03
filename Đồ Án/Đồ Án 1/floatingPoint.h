@@ -7,7 +7,8 @@ using namespace std;
 class floatingPoint
 {
 private:
-	int data[4] = {};
+	int data[4] = {0};
+	const int INTLENGT = 32;
 public:
 	floatingPoint(int bin[4])
 	{

@@ -9,16 +9,5 @@ E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Projec
 E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(193,20): warning C4018: '>=': signed/unsigned mismatch
 E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(201,23): warning C4018: '<': signed/unsigned mismatch
 E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(329,23): warning C4018: '<': signed/unsigned mismatch
-  Qfloat.cpp
-E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\Qfloat.cpp(29,35): warning C4018: '<': signed/unsigned mismatch
-E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\Qfloat.cpp(54,21): warning C4018: '<': signed/unsigned mismatch
-E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\Qfloat.cpp(91,21): warning C4018: '<': signed/unsigned mismatch
-E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\Qfloat.cpp(102,29): warning C4018: '<': signed/unsigned mismatch
-E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\Qfloat.cpp(113,31): warning C4018: '>': signed/unsigned mismatch
-E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\Qfloat.cpp(140,23): warning C4018: '<': signed/unsigned mismatch
-E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\Qfloat.cpp(152,31): warning C4018: '>': signed/unsigned mismatch
-E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\Qfloat.cpp(174,41): warning C4018: '<': signed/unsigned mismatch
-  Đồ Án 1.cpp
-E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\Đồ Án 1.cpp(14,15): error C3867: 'floatingPoint::printQfloat': non-standard syntax; use '&' to create a pointer to member
-  Generating Code...
 E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(264): warning C4715: 'pow': not all control paths return a value
+  Đồ Án 1.vcxproj -> E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Debug\Đồ Án 1.exe

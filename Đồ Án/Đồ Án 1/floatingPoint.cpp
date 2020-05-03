@@ -334,13 +334,11 @@ string binToQfloat(int bin[4])
     }
     
     M[0] = '1';
-    cout << M << endl;
     kq = M;
     if (E >= 0)
     {
         for (int i = 1; i <= E; i++)
             kq = nhanChuoiVoi2(kq);
-        cout << kq << endl;
     }
     if (E < 0)
     {
