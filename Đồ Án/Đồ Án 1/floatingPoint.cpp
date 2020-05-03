@@ -6,8 +6,27 @@ using namespace std;
 
 void floatingPoint::printQfloat()
 {
-    cout << binToQfloat(this->data);
-
+    cout << "Nhap hinh thuc xuat(He 2 hoac He 10): ";
+    _int64 radix;
+    cin >> radix;
+    if (radix != 2 && radix != 10)
+        cout << "Sai he co so, moi nhap lai." << endl;
+    if (radix == 2)
+    {
+        cout << getBit(this->data[0], 0) << "  ";
+        for (int i = 1; i < 128; i++)
+        {
+            if ((i + 4) % 4 == 0)
+                cout << " ";
+            if (i == 16) cout << "  ";
+            cout << getBit(this->data[i / 4], i % 4);
+        }
+    }
+    if (radix == 10)
+    {
+        cout << binToQfloat(this->data);
+    }
+ 
 }
 int binToDec(string bit)//convert binary to integer number
 // bit.length() = 15: exponent
@@ -48,23 +67,26 @@ string nhanChuoiVoi2(string bigNum)//multiple a string by 2
         dau = 1;
         bigNum.erase(0, 1);
     }
-    for (int i = bigNum.size()-1; i >= 0; i--)
-    {
-        char res = (bigNum[i] - '0') * 2 + nho;
-        if (res < 10)
+    for (int i = bigNum.size() - 1; i >= 0; i--)
+        if (bigNum[i] != '.')
         {
-            res += '0';
-            kq = res + kq;
-            nho = 0;
+            char res = (bigNum[i] - '0') * 2 + nho;
+            if (res < 10)
+            {
+                res += '0';
+                kq = res + kq;
+                nho = 0;
+            }
+            else
+            {
+                nho = 1;
+                res = res % 10;
+                res += '0';
+                kq = res + kq;
+            }
         }
         else
-        {
-            nho = 1;
-            res = res % 10;
-            res += '0';
-            kq = res + kq;
-        }
-    }
+            kq = '.' + kq;
 
     if (nho == 1)//
         kq = '1' + kq;
@@ -295,7 +317,7 @@ string binToQfloat(int bin[4])
         exp += (char)(getBit(bin[0], i) + '0');
     }
    
-    int E = binToDec(exp) - 16384;
+    int E = binToDec(exp) - 16383;
     
     string value = "";
     for (int i = 16; i < 128; i++)
@@ -310,12 +332,15 @@ string binToQfloat(int bin[4])
             M = addFloat(M, pow(-(i + 1)));
 
     }
+    
     M[0] = '1';
+    cout << M << endl;
     kq = M;
     if (E >= 0)
     {
         for (int i = 1; i <= E; i++)
             kq = nhanChuoiVoi2(kq);
+        cout << kq << endl;
     }
     if (E < 0)
     {
@@ -324,8 +349,7 @@ string binToQfloat(int bin[4])
             kq = chia2(kq);
         }
     }
-    cout << exp << endl;
-    cout << E << endl;
+   
     if (getBit(bin[0], 0) == '1')
         kq = '-' + kq;
     return kq;

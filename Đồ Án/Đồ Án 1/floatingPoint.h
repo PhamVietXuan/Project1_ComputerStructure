@@ -7,8 +7,19 @@ using namespace std;
 class floatingPoint
 {
 private:
-	int data[4] = {536165, 56165, 0, 0 };
+	int data[4] = {};
 public:
+	floatingPoint(int bin[4])
+	{
+		data[0] = bin[0];
+		data[1] = bin[1];
+		data[2] = bin[2];
+		data[3] = bin[3];
+	}
+	~floatingPoint()
+	{
+		delete[] this;
+	}
 	void printQfloat();
 };
 string decToBin(string dec);

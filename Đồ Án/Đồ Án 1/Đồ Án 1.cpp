@@ -8,6 +8,9 @@ using namespace std;
 
 int main()
 {
-	int a = 4294967294;
-	cout << a;
+	int bin[4] = { 1073930772, 2061584302, 343597383, 920577761};
+	
+	floatingPoint a;
+	a.printQfloat;
+	
 }
