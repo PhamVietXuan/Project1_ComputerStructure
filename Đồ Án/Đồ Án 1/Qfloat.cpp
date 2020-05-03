@@ -98,7 +98,7 @@ void Qfloat::ScanQfloat() {
 			cout << "*****************************************\n";
 			return;
 		}
-		
+
 		if (z == 1) {
 			cout << "Nhap chuoi so: ";
 			cin >> scan;
@@ -110,7 +110,9 @@ void Qfloat::ScanQfloat() {
 				return;
 			}
 
-			for (int i = 0; (i < 128) && (i < scan.length()); i++) {
+			int i;
+
+			for (i = 0; (i < 128) && (i < scan.length()); i++) {
 
 				if (scan[i] == '1') {
 					data[i / INTLENGT] = data[i / INTLENGT] | (1 << (INTLENGT - 1 - i % INTLENGT));
@@ -125,6 +127,17 @@ void Qfloat::ScanQfloat() {
 					}
 				}
 
+			}
+
+			if (i == 128 && scan.length() > 127) {
+				if (scan[i] == '1') {
+					i--;
+					while ((((data[i / INTLENGT] >> (INTLENGT - 1 - i)) & 1) == 1) && (i > 15)) {
+						data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
+						i--;
+					}
+					data[i / INTLENGT] = data[i / INTLENGT] | (1 << (INTLENGT - 1 - i % INTLENGT));
+				}
 			}
 
 		}
@@ -164,7 +177,9 @@ void Qfloat::ScanQfloat() {
 				E /= 2;
 			}
 
-			for (int i = 16; (i < 128) && (i - 16 < F.length()); i++) {
+			int i;
+
+			for (i = 16; (i < 128) && (i - 16 < F.length()); i++) {
 				if (F[i - 16] == '1') {
 					data[i / INTLENGT] = data[i / INTLENGT] | (1 << (INTLENGT - 1 - i % INTLENGT));
 				}
@@ -176,6 +191,17 @@ void Qfloat::ScanQfloat() {
 						cout << "*****************************************\n";
 						return;
 					}
+				}
+			}
+
+			if (i == 128 && F.length() >= 112) {
+				if (F[i - 16] == '1') {
+					i--;
+					while ((((data[i / INTLENGT] >> (INTLENGT - 1 - i)) & 1) == 1) && (i > 15)) {
+						data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
+						i--;
+					}
+					data[i / INTLENGT] = data[i / INTLENGT] | (1 << (INTLENGT - 1 - i % INTLENGT));
 				}
 			}
 
@@ -327,8 +353,21 @@ void Qfloat::ScanQfloat() {
 				Point /= 2;
 			}
 
-			for (int i = 16; (i < 128) && (i - 16 < PhanDinhTri.length()); i++) {
+			int i;
+
+			for (i = 16; (i < 128) && (i - 16 < PhanDinhTri.length()); i++) {
 				if (PhanDinhTri[i - 16] == '1') {
+					data[i / INTLENGT] = data[i / INTLENGT] | (1 << (INTLENGT - 1 - i % INTLENGT));
+				}
+			}
+
+			if (i == 128 && PhanDinhTri.length() >= 112) {
+				if (PhanDinhTri[i] == '1') {
+					i--;
+					while ((((data[i / INTLENGT] >> (INTLENGT - 1 - i)) & 1) == 1) && (i > 15)) {
+						data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
+						i--;
+					}
 					data[i / INTLENGT] = data[i / INTLENGT] | (1 << (INTLENGT - 1 - i % INTLENGT));
 				}
 			}
@@ -490,8 +529,21 @@ void Qfloat::ScanQfloat() {
 				Point /= 2;
 			}
 
-			for (int i = 16; (i < 128) && (i - 16 < PhanDinhTri.length()); i++) {
+			int i;
+
+			for (i = 16; (i < 128) && (i - 16 < PhanDinhTri.length()); i++) {
 				if (PhanDinhTri[i - 16] == '1') {
+					data[i / INTLENGT] = data[i / INTLENGT] | (1 << (INTLENGT - 1 - i % INTLENGT));
+				}
+			}
+
+			if (i == 128 && PhanDinhTri.length() >= 112) {
+				if (PhanDinhTri[i] == '1') {
+					i--;
+					while ((((data[i / INTLENGT] >> (INTLENGT - 1 - i)) & 1) == 1) && (i > 15)) {
+						data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
+						i--;
+					}
 					data[i / INTLENGT] = data[i / INTLENGT] | (1 << (INTLENGT - 1 - i % INTLENGT));
 				}
 			}
