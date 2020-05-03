@@ -347,8 +347,10 @@ string binToQfloat(int bin[4])
             kq = chia2(kq);
         }
     }
-   
-    if (getBit(bin[0], 0) == '1')
+    
+    if (getBit(bin[0], 0) == 1) {
         kq = '-' + kq;
+       
+    }
     return kq;
 }
