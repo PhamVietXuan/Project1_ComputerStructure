@@ -324,6 +324,7 @@ string binToQfloat(int bin[4])
             kq = chia2(kq);
         }
     }
+    cout << exp << endl;
     cout << E << endl;
     if (getBit(bin[0], 0) == '1')
         kq = '-' + kq;
