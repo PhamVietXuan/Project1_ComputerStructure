@@ -147,11 +147,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bigNum.cpp" />
     <ClCompile Include="floatingPoint.cpp" />
     <ClCompile Include="Qfloat.cpp" />
     <ClCompile Include="Đồ Án 1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bigNum.h" />
     <ClInclude Include="floatingPoint.h" />
     <ClInclude Include="Qfloat.h" />
   </ItemGroup>

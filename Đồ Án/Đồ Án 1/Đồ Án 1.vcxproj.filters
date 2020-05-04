@@ -24,12 +24,18 @@
     <ClCompile Include="Qfloat.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="bigNum.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="floatingPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Qfloat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bigNum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

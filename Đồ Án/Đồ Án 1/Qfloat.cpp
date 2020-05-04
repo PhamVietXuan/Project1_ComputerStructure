@@ -193,9 +193,6 @@ void Qfloat::ScanQfloat() {
 	return;
 }
 
-
-
-
 bool* Qfloat::DecToBin() {
 	bool* result = new bool[128];
 
