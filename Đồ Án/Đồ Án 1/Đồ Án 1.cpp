@@ -22,7 +22,7 @@ int main()
         if (i % 4 == 3) { cout << " "; }
     }
         cout << endl;
-
+ 
         return 0;
 
 }

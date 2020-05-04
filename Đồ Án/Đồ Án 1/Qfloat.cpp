@@ -67,8 +67,6 @@ int mod2(string bigNum)
 	return ((bigNum[bigNum.size() - 1] - '0') % 2);
 }
 
-
-
 void Qfloat::ScanQfloat() {
 	int radix;
 	string scan = "";
@@ -296,7 +294,10 @@ void Qfloat::ScanQfloat() {
 						PhanDinhTri += "1";
 						PhanThapPhan.erase(0, 1);
 					}
-					else { PhanDinhTri += "0"; }
+					else {
+						PhanDinhTri += "0";
+						i--;
+					}
 				}
 
 				while (PhanDinhTri[0] == '0') {
@@ -335,7 +336,10 @@ void Qfloat::ScanQfloat() {
 						PhanDinhTri += "1";
 						PhanThapPhan.erase(0, 1);
 					}
-					else { PhanDinhTri += "0"; }
+					else {
+						PhanDinhTri += "0";
+						i--;
+					}
 				}
 			}
 
@@ -472,7 +476,10 @@ void Qfloat::ScanQfloat() {
 						PhanDinhTri += "1";
 						PhanThapPhan.erase(0, 1);
 					}
-					else { PhanDinhTri += "0"; }
+					else {
+						PhanDinhTri += "0";
+						i--;
+					}
 				}
 
 				while (PhanDinhTri[0] == '0') {
@@ -511,7 +518,10 @@ void Qfloat::ScanQfloat() {
 						PhanDinhTri += "1";
 						PhanThapPhan.erase(0, 1);
 					}
-					else { PhanDinhTri += "0"; }
+					else {
+						PhanDinhTri += "0";
+						i--;
+					}
 				}
 			}
 
@@ -566,8 +576,6 @@ void Qfloat::ScanQfloat() {
 
 	return;
 }
-
-
 
 
 bool* Qfloat::DecToBin() {
