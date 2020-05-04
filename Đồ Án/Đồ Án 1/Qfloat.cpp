@@ -450,7 +450,7 @@ void Qfloat::ScanQfloat() {
 
 					if (PhanNguyen != "") {
 						PhanThapPhan = PhanNguyen[PhanNguyen.length() - 1] + PhanThapPhan;
-						PhanNguyen.erase(PhanNguyen.length(), 1);
+						PhanNguyen.erase(PhanNguyen.length() - 1, 1);
 					}
 					else {
 						PhanThapPhan = "0" + PhanThapPhan;
