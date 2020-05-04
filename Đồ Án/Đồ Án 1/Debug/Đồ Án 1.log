@@ -7,4 +7,35 @@ E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Projec
 E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\Qfloat.cpp(140,23): warning C4018: '<': signed/unsigned mismatch
 E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\Qfloat.cpp(152,31): warning C4018: '>': signed/unsigned mismatch
 E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\Qfloat.cpp(174,41): warning C4018: '<': signed/unsigned mismatch
+  bigNum.cpp
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\bigNum.cpp(7,23): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\bigNum.cpp(78,27): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\bigNum.cpp(87,27): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\bigNum.cpp(93,27): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\bigNum.cpp(162,15): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\bigNum.cpp(162,40): warning C4018: '>=': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\bigNum.cpp(165,16): warning C4018: '>=': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\bigNum.cpp(173,19): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\bigNum.cpp(301,23): warning C4018: '<': signed/unsigned mismatch
+  floatingPoint.cpp
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(73,36): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(127,42): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(170,22): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(207,22): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(218,30): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(229,32): warning C4018: '>': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(256,24): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(268,32): warning C4018: '>': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(290,42): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(330,22): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(343,22): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(392,32): warning C4018: '>': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(419,24): warning C4018: '<': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(431,32): warning C4018: '>': signed/unsigned mismatch
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\floatingPoint.cpp(453,42): warning C4018: '<': signed/unsigned mismatch
+  Đồ Án 1.cpp
+  Generating Code...
+E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Đồ Án 1\bigNum.cpp(236): warning C4715: 'pow': not all control paths return a value
+  LINK : E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Debug\Đồ Án 1.exe not found or not built by the last incremental link; performing full link
   Đồ Án 1.vcxproj -> E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Debug\Đồ Án 1.exe
