@@ -10,7 +10,7 @@ private:
 	const int INTLENGT = 32;
 public:
 	void ScanQfloat();
-	bool* DecToBin();
+	void DecToBin(string);
 public:
 	~Qfloat();
 };
