@@ -1,0 +1,38 @@
+﻿  BigNum.cpp
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\BigNum.cpp(7,23): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\BigNum.cpp(37,27): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\BigNum.cpp(46,27): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\BigNum.cpp(52,27): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\BigNum.cpp(169,15): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\BigNum.cpp(169,40): warning C4018: '>=': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\BigNum.cpp(172,16): warning C4018: '>=': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\BigNum.cpp(180,19): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\BigNum.cpp(303,23): warning C4018: '<': signed/unsigned mismatch
+  Bài 2.cpp
+  Qfloat.cpp
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(70,32): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(131,38): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(192,22): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(235,22): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(246,30): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(259,32): warning C4018: '>': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(289,24): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(301,32): warning C4018: '>': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(332,38): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(376,22): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(390,22): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(448,32): warning C4018: '>': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(479,24): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(491,32): warning C4018: '>': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(521,38): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(609,20): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(643,20): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(680,20): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(691,28): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(702,30): warning C4018: '>': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(732,22): warning C4018: '<': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(744,30): warning C4018: '>': signed/unsigned mismatch
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\Qfloat.cpp(771,36): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Bài 2\BigNum.cpp(243): warning C4715: 'pow': not all control paths return a value
+  Bài 2.vcxproj -> D:\4. Tài Liệu Học\3. Kiến Trúc Máy Tính Và Hợp Ngữ\Đồ Án\1\Bài 2\Bài 2\Debug\Bài 2.exe

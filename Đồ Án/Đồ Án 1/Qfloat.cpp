@@ -118,6 +118,13 @@ void Qfloat::ScanQfloat() {
 				return;
 			}
 
+			if (scan.length() > 128) {
+				cout << "*****************************************\n";
+				cout << "Thong bao: Chuoi so ban nhap qua dai!\n";
+				cout << "*****************************************\n";
+				return;
+			}
+
 			// Nhập chuỗi nhị phân vô Qfloat, dò TH chuỗi bị sai kí tự
 			int i;
 
@@ -136,18 +143,6 @@ void Qfloat::ScanQfloat() {
 					}
 				}
 
-			}
-
-			// Làm tròn (nếu chuỗi nhị phân quá dài)
-			if (i == 128 && scan.length() > 127) {
-				if (scan[i] == '1') {
-					i--;
-					while ((((data[i / INTLENGT] >> (INTLENGT - 1 - i)) & 1) == 1) && (i > 15)) {
-						data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
-						i--;
-					}
-					data[i / INTLENGT] = data[i / INTLENGT] | (1 << (INTLENGT - 1 - i % INTLENGT));
-				}
 			}
 
 		}
@@ -187,7 +182,7 @@ void Qfloat::ScanQfloat() {
 			// Nhập giá trị E = Mũ + 16383 vô Qfloat
 			E += 16383;
 			for (int i = 15; i > 0; i--) {
-				if (E % 2 == 1) { data[0] = data[0] | (1 << (INTLENGT - 1 - i)); }
+				if (E % 2 == 1) { data[0] = data[0] | (1 << (INTLENGT - 1 - i % INTLENGT)); }
 				E /= 2;
 			}
 
@@ -313,7 +308,7 @@ void Qfloat::ScanQfloat() {
 				PhanThapPhan += scan[i];
 			}
 
-			// Đổi Phần Nguyên và Phần Nhị Phân ra chuỗi nhị phân lưu vào biến Phần Định Trị
+			// Đổi Phần Nguyên và Phần Thập Phân ra chuỗi nhị phân lưu vào biến Phần Định Trị
 			// Dùng biến xét vị trí dấu chấm thành biến xét mũ, đếm giá trị mũ
 			Point = 0;
 			if ((PhanNguyen == "0") || (PhanNguyen == "")) {
@@ -388,7 +383,7 @@ void Qfloat::ScanQfloat() {
 
 			// Lưu giá trị mũ vô Qfloat
 			for (int i = 15; i > 0; i--) {
-				if (Point % 2 == 1) { data[0] = data[0] | (1 << (INTLENGT - 1 - i)); }
+				if (Point % 2 == 1) { data[0] = data[0] | (1 << (INTLENGT - 1 - i % INTLENGT)); }
 				Point /= 2;
 			}
 
@@ -438,6 +433,8 @@ void Qfloat::ScanQfloat() {
 			cout << "Nhap phan nguyen (A): ";
 			cin >> PhanNguyen;
 
+			int CountNotZero = 0;
+
 			for (int i = 0; i < PhanNguyen.length(); i++) {
 				if ((PhanNguyen[i] < '0') || (PhanNguyen[i] > '9')) {
 					cout << "*****************************************\n";
@@ -446,6 +443,7 @@ void Qfloat::ScanQfloat() {
 					return;
 				}
 
+				if (PhanNguyen[i] != '0') { CountNotZero++; }
 			}
 
 			cout << "Nhap phan thap phan (B): ";
@@ -459,12 +457,16 @@ void Qfloat::ScanQfloat() {
 					return;
 				}
 
+				if (PhanThapPhan[i] != '0') { CountNotZero++; }
 			}
+
+			//TH đặc biệt: Giá trị bằng 0
+			if (CountNotZero == 0) { return; }
 
 			// Xét dấu, lưu giá trị vào Qfloat
 			if (Dau == 1) { data[0] = data[0] | (1 << (INTLENGT - 1)); }
 
-			// Xét gia trị mũ, để đặt lại dấu chấm
+			// Xét giá trị mũ, để đặt lại dấu chấm
 			if (X > 0) {
 				for (int i = 0; i < X; i++) {
 
@@ -497,6 +499,8 @@ void Qfloat::ScanQfloat() {
 			string PhanDinhTri = "";
 			int Point = 0;
 
+			// Đổi Phần Nguyên và Phần Thập Phân ra chuỗi nhị phân lưu vào biến Phần Định Trị
+			// Dùng biến xét vị trí dấu chấm thành biến xét mũ, đếm giá trị mũ
 			if ((PhanNguyen == "0") || (PhanNguyen == "")) {
 				for (int i = 0; (i < 122) && (PhanThapPhan != "0"); i++) {
 
@@ -512,6 +516,7 @@ void Qfloat::ScanQfloat() {
 						i--;
 					}
 				}
+
 
 				while (PhanDinhTri[0] == '0') {
 					Point--;
@@ -556,6 +561,7 @@ void Qfloat::ScanQfloat() {
 				}
 			}
 
+			// Xét TH mũ quá lớn hoặc quá nhỏ
 			if ((Point < -16383) || (Point > 16383)) {
 				cout << "*****************************************\n";
 				cout << "Thong bao: Tran so!\n";
@@ -563,13 +569,15 @@ void Qfloat::ScanQfloat() {
 				return;
 			}
 
+			// Cộng số mũ với 16383 để ra giá trị E
 			Point += 16383;
 
 			for (int i = 15; i > 0; i--) {
-				if (Point % 2 == 1) { data[0] = data[0] | (1 << (INTLENGT - 1 - i)); }
+				if (Point % 2 == 1) { data[0] = data[0] | (1 << (INTLENGT - 1 - i % INTLENGT)); }
 				Point /= 2;
 			}
 
+			// Lưu Phần Định Trị vô Qfloat
 			int i;
 
 			for (i = 16; (i < 128) && (i - 16 < PhanDinhTri.length()); i++) {
@@ -578,10 +586,11 @@ void Qfloat::ScanQfloat() {
 				}
 			}
 
+			// Làm tròn nếu phần định trị quá dài
 			if (i == 128 && PhanDinhTri.length() >= 112) {
 				if (PhanDinhTri[i] == '1') {
 					i--;
-					while ((((data[i / INTLENGT] >> (INTLENGT - 1 - i)) & 1) == 1) && (i > 15)) {
+					while ((((data[i / INTLENGT] >> (INTLENGT - 1 - i % INTLENGT)) & 1) == 1) && (i > 15)) {
 						data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
 						i--;
 					}
@@ -589,9 +598,10 @@ void Qfloat::ScanQfloat() {
 				}
 			}
 
+			//TH làm tròn bị tràn số
 			int test = 0;
 			for (int i = 0; i < 128; i++) {
-				test += (data[i / INTLENGT] >> (INTLENGT - 1 - i)) & 1;
+				test += (data[i / INTLENGT] >> (INTLENGT - 1 - i % INTLENGT)) & 1;
 				if (test > 0) { break; }
 			}
 			if (test == 0) {
