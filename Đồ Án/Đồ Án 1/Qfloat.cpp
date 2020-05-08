@@ -1,4 +1,4 @@
-#include "Qfloat.h"
+﻿#include "Qfloat.h"
 
 string nhanChuoiVoi2(string bigNum){
 
@@ -67,12 +67,16 @@ int mod2(string bigNum)
 	return ((bigNum[bigNum.size() - 1] - '0') % 2);
 }
 
+//I. Hàm nhập Qfloat
 void Qfloat::ScanQfloat() {
 	int radix;
 	string scan = "";
 
+	//1. Lựa chọn nhập hệ cơ số 2 hoặc 10
 	cout << "Nhap he co so (2 hoac 10): ";
 	cin >> radix;
+
+	//2. TH1: Ngoại lệ
 	if ((radix != 2) && (radix != 10)) {
 		cout << "*****************************************\n";
 		cout << "Thong bao: He co so ban nhap khong thoa!\n";
@@ -80,8 +84,10 @@ void Qfloat::ScanQfloat() {
 		return;
 	}
 
+	//3. Th2: TH cơ số 2
 	if (radix == 2) {
 
+		//a. Lựa chọn nhập dạng thường hoặc dạng (+/-) 1.F*2^E
 		int z;
 		cout << "*****************************************\n";
 		cout << "1. Nhap dang cham thuong (Nhan 1)\n";
@@ -90,6 +96,7 @@ void Qfloat::ScanQfloat() {
 		cout << "Nhap lua chon cua ban: ";
 		cin >> z;
 
+		//b. TH1: Nhập lựa chọn sai
 		if ((z != 1) && (z != 2)) {
 			cout << "*****************************************\n";
 			cout << "Thong bao: Lua chon ban nhap khong hop le!\n";
@@ -97,10 +104,13 @@ void Qfloat::ScanQfloat() {
 			return;
 		}
 
+		//c. TH2: Nhập bình thường
 		if (z == 1) {
+			// Nhập chuỗi số
 			cout << "Nhap chuoi so: ";
 			cin >> scan;
 
+			// Xét trường hợp không thoả điều kiện (chuỗi ngắn hơn 17 kí tự)
 			if (scan.length() < 17) {
 				cout << "*****************************************\n";
 				cout << "Thong bao: Chuoi so ban nhap qua ngan!\n";
@@ -108,6 +118,7 @@ void Qfloat::ScanQfloat() {
 				return;
 			}
 
+			// Nhập chuỗi nhị phân vô Qfloat, dò TH chuỗi bị sai kí tự
 			int i;
 
 			for (i = 0; (i < 128) && (i < scan.length()); i++) {
@@ -127,6 +138,7 @@ void Qfloat::ScanQfloat() {
 
 			}
 
+			// Làm tròn (nếu chuỗi nhị phân quá dài)
 			if (i == 128 && scan.length() > 127) {
 				if (scan[i] == '1') {
 					i--;
@@ -140,10 +152,12 @@ void Qfloat::ScanQfloat() {
 
 		}
 
+		// d. TH3: Nhập dạng (+/-) 1.F*2^E
 		if (z == 2) {
 			int Dau, E;
 			string F;
 
+			// Nhap Dấu, Mũ, Phần Định Trị, xét trường hợp chuỗi không thoả
 			cout << "Nhap dau(So duong nhap 0, So am nhap 1): ";
 			cin >> Dau;
 
@@ -167,14 +181,17 @@ void Qfloat::ScanQfloat() {
 			cout << "Nhap phan dinh tri sau dau cham (F) (Nhap dang nhi phan): ";
 			cin >> F;
 
+			// Nhập giá trị dấu vô Qfloat
 			if (Dau == 1) { data[0] = data[0] | (1 << (INTLENGT - 1)); }
 
+			// Nhập giá trị E = Mũ + 16383 vô Qfloat
 			E += 16383;
 			for (int i = 15; i > 0; i--) {
 				if (E % 2 == 1) { data[0] = data[0] | (1 << (INTLENGT - 1 - i)); }
 				E /= 2;
 			}
 
+			//  Nhập Phần Định Trị vô Qfloat
 			int i;
 
 			for (i = 16; (i < 128) && (i - 16 < F.length()); i++) {
@@ -192,6 +209,7 @@ void Qfloat::ScanQfloat() {
 				}
 			}
 
+			// Làm tròn (nếu Phần Định Trị đủ dài)
 			if (i == 128 && F.length() >= 112) {
 				if (F[i - 16] == '1') {
 					i--;
@@ -207,8 +225,10 @@ void Qfloat::ScanQfloat() {
 
 	}
 
+	//4. Th3: TH cơ số 10
 	if (radix == 10) {
 
+		//a. Lua chon nhập chuỗi bình thường hoặc dạng (+/-) A.B*10^X
 		int z;
 		cout << "*****************************************\n";
 		cout << "1. Nhap dang cham thuong (Nhan 1)\n";
@@ -217,6 +237,7 @@ void Qfloat::ScanQfloat() {
 		cout << "Nhap lua chon cua ban: ";
 		cin >> z;
 
+		//b. TH1: Nhập lựa chọn sai
 		if ((z != 1) && (z != 2)) {
 			cout << "*****************************************\n";
 			cout << "Thong bao: Lua chon ban nhap khong hop le!\n";
@@ -224,18 +245,24 @@ void Qfloat::ScanQfloat() {
 			return;
 		}
 
+		//c. TH2: Nhập bình thường
 		if (z == 1) {
 
+			// Nhập chuỗi số
 			cout << "Nhap chuoi so: ";
 			cin >> scan;
 
 			int count = 0, count2 = 0, countNotZero = 0;
 
+			// Dò trường hợp chuỗi nhập sai kí tự (bao gồm kí tự khác '1', '2', '-', '+', '.'
 			for (int i = 0; i < scan.length(); i++) {
 				if ((scan[i] < '0') || (scan[i] > '9')) {
 					if (scan[i] == '.') { count++; }
 					else {
-						if ((scan[i] == '-') || (scan[i] == '+')) { count2++; }
+						if ((scan[i] == '-') || (scan[i] == '+')) { 
+							count2++; 
+							if (i != 0) { count2++; }
+						}
 
 						else {
 							cout << "*****************************************\n";
@@ -250,21 +277,24 @@ void Qfloat::ScanQfloat() {
 				else { if (scan[i] != 0) { countNotZero++; } }
 			}
 
+			// Dò trường hợp chuỗi nhập sai
 			if ((count > 1) || (count2 > 1)) {
 				cout << "*****************************************\n";
 				cout << "Thong bao: Chuoi so ban nhap sai ky tu!\n";
 				cout << "*****************************************\n";
 				return;
 			}
-
+			// TH chuỗi toàn số 0 -> số 0
 			if (countNotZero == 0) { return; }
 
+			// TH chuỗi có dấu đằng trước, đồng thời lưu giá trị dấu vào Qfloat
 			if ((scan[0] == '-') || (scan[0] == '+')) {
 
 				if (scan[0] == '-') { data[0] = data[0] | (1 << (INTLENGT - 1)); }
 				scan.erase(0, 1);
 			}
 
+			// Chia chuỗi vừa nhập ra phần nguyên và phần thập phân, bằng cách tìm ra vị trí dấu chấm
 			string PhanNguyen = "", PhanThapPhan = "", PhanDinhTri = "";
 			int Point = scan.length();
 
@@ -283,6 +313,8 @@ void Qfloat::ScanQfloat() {
 				PhanThapPhan += scan[i];
 			}
 
+			// Đổi Phần Nguyên và Phần Nhị Phân ra chuỗi nhị phân lưu vào biến Phần Định Trị
+			// Dùng biến xét vị trí dấu chấm thành biến xét mũ, đếm giá trị mũ
 			Point = 0;
 			if ((PhanNguyen == "0") || (PhanNguyen == "")) {
 				for (int i = 0; (i < 122) && (PhanThapPhan != "0"); i++) {
@@ -343,6 +375,7 @@ void Qfloat::ScanQfloat() {
 				}
 			}
 
+			// Xét TH mũ quá lớn hoặc quá nhỏ
 			if ((Point < -16383) || (Point > 16383)) {
 				cout << "*****************************************\n";
 				cout << "Thong bao: Tran so!\n";
@@ -350,13 +383,16 @@ void Qfloat::ScanQfloat() {
 				return;
 			}
 
+			// Cộng số mũ với 16383 để ra giá trị E
 			Point += 16383;
 
+			// Lưu giá trị mũ vô Qfloat
 			for (int i = 15; i > 0; i--) {
 				if (Point % 2 == 1) { data[0] = data[0] | (1 << (INTLENGT - 1 - i)); }
 				Point /= 2;
 			}
 
+			// Lưu Phần Định Trị vô Qfloat
 			int i;
 
 			for (i = 16; (i < 128) && (i - 16 < PhanDinhTri.length()); i++) {
@@ -365,6 +401,7 @@ void Qfloat::ScanQfloat() {
 				}
 			}
 
+			// Làm tròn nếu Phần Định Trị quá dài
 			if (i == 128 && PhanDinhTri.length() >= 112) {
 				if (PhanDinhTri[i] == '1') {
 					i--;
@@ -376,24 +413,15 @@ void Qfloat::ScanQfloat() {
 				}
 			}
 
-			int test = 0;
-			for (int i = 0; i < 128; i++) {
-				test += (data[i / INTLENGT] >> (INTLENGT - 1 - i)) & 1;
-				if (test > 0) { break; }
-			}
-			if (test == 0) {
-				cout << "*****************************************\n";
-				cout << "Thong bao: Tran so!\n";
-				cout << "*****************************************\n";
-				return;
-			}
 
 		}
 
+		//d. TH3: Nhập dạng (+/-) A.B*10^X
 		if (z == 2) {
 			int Dau, X;
 			string PhanNguyen, PhanThapPhan;
 
+			//Nhập Dấu, Nhập Mũ X, Nhập A, B, Xét trường hợp nhập sai
 			cout << "Nhap dau(So duong nhap 0, So am nhap 1): ";
 			cin >> Dau;
 
@@ -433,8 +461,10 @@ void Qfloat::ScanQfloat() {
 
 			}
 
+			// Xét dấu, lưu giá trị vào Qfloat
 			if (Dau == 1) { data[0] = data[0] | (1 << (INTLENGT - 1)); }
 
+			// Xét gia trị mũ, để đặt lại dấu chấm
 			if (X > 0) {
 				for (int i = 0; i < X; i++) {
 
@@ -463,6 +493,7 @@ void Qfloat::ScanQfloat() {
 				}
 			}
 
+			// Phần còn lại làm giống TH1
 			string PhanDinhTri = "";
 			int Point = 0;
 
