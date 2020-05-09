@@ -1,5 +1,8 @@
-﻿#include "Qfloat.h"
+﻿#include <iostream>
+#include "Qfloat.h"
 #include "BigNum.h"
+
+using namespace std;
 
 // Hàm khởi tạo
 Qfloat::Qfloat() {
@@ -105,7 +108,7 @@ void Qfloat::ScanQfloat() {
 			cout << "Nhap so mu (E) (Nhap dang thap phan): ";
 			cin >> E;
 
-			if ((E < -16383) || (E > 16383)) {
+			if ((E < (-16383-112)) || (E > 16383)) {
 				cout << "*****************************************\n";
 				cout << "Thong bao: Tran so!\n";
 				cout << "*****************************************\n";
@@ -120,12 +123,49 @@ void Qfloat::ScanQfloat() {
 
 			// Nhập giá trị E = Mũ + 16383 vô Qfloat
 			E += 16383;
+
+			//TH đặc biệt: normalized number
+			if (E < 0) {
+
+				// Nhập phần định trị cho normalized number
+				int i = 0;
+
+				for (i = 16 - E; (i < (128)) && ((i - 16 + E) < F.length()); i++) {
+					if (F[i - 16 + E] == '1') {
+						data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+					}
+					else {
+						if (F[i - 16 + E] == '0') {}
+						else {
+							cout << "*****************************************\n";
+							cout << "Thong bao: Chuoi so ban nhap sai ky tu!\n";
+							cout << "*****************************************\n";
+							return;
+						}
+					}
+				}
+
+				// Làm tròn (nếu Phần Định Trị đủ dài)
+				if (i == 128 + E && F.length() >= 112 + E) {
+					if (F[i - 16 + E] == '1') {
+						i--;
+						while ((getBit(data[i / INTLENGT], i % INTLENGT) == 1) && (i > 15)) {
+							data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
+							i--;
+						}
+						data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+					}
+				}
+				return;
+			}
+
+			// Nhập mũ với TH bình thường
 			for (int i = 15; i > 0; i--) {
 				if (E % 2 == 1) { data[0] = setBit1(data[i / INTLENGT], i % INTLENGT); }
 				E /= 2;
 			}
 
-			//  Nhập Phần Định Trị vô Qfloat
+			// Nhập Phần Định Trị vô Qfloat
 			int i;
 
 			for (i = 16; (i < 128) && (i - 16 < F.length()); i++) {
@@ -144,8 +184,8 @@ void Qfloat::ScanQfloat() {
 			}
 
 			// Làm tròn (nếu Phần Định Trị đủ dài)
-			if (i == 128 && F.length() >= 112) {
-				if (F[i - 16] == '1') {
+			if (i == 128 && F.length() >= 112 + E) {
+				if (F[i - 16 + E] == '1') {
 					i--;
 					while ((getBit(data[i / INTLENGT], i % INTLENGT) == 1) && (i > 15)) {
 						data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
@@ -188,7 +228,7 @@ void Qfloat::ScanQfloat() {
 
 			int count = 0, count2 = 0, countNotZero = 0;
 
-			// Dò trường hợp chuỗi nhập sai kí tự (bao gồm kí tự khác '1', '2', '-', '+', '.'
+			// Dò trường hợp chuỗi nhập sai kí tự (bao gồm kí tự khác số, '-', '+', '.'
 			for (int i = 0; i < scan.length(); i++) {
 				if ((scan[i] < '0') || (scan[i] > '9')) {
 					if (scan[i] == '.') { count++; }
@@ -208,7 +248,7 @@ void Qfloat::ScanQfloat() {
 
 				}
 
-				else { if (scan[i] != 0) { countNotZero++; } }
+				else { if (scan[i] != '0') { countNotZero++; } }
 			}
 
 			// Dò trường hợp chuỗi nhập sai
@@ -310,7 +350,7 @@ void Qfloat::ScanQfloat() {
 			}
 
 			// Xét TH mũ quá lớn hoặc quá nhỏ
-			if ((Point < -16383) || (Point > 16383)) {
+			if ((Point < (-16383 - 112)) || (Point > 16383)) {
 				cout << "*****************************************\n";
 				cout << "Thong bao: Tran so!\n";
 				cout << "*****************************************\n";
@@ -318,12 +358,49 @@ void Qfloat::ScanQfloat() {
 			}
 
 			// Cộng số mũ với 16383 để ra giá trị E
-			Point += 16383;
+			int E = 16383 + Point;
 
-			// Lưu giá trị mũ vô Qfloat
+			//TH đặc biệt: normalized number
+			if (E < 0) {
+
+				// Nhập phần định trị cho normalized number
+				int i = 0;
+
+				for (i = 16 - E; (i < 128) && (i - 16 + E < PhanDinhTri.length()); i++) {
+					if (PhanDinhTri[i - 16 + E] == '1') {
+						data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+					}
+					else {
+						if (PhanDinhTri[i - 16 + E] == '0') {}
+						else {
+							cout << "*****************************************\n";
+							cout << "Thong bao: Chuoi so ban nhap sai ky tu!\n";
+							cout << "*****************************************\n";
+							return;
+						}
+					}
+				}
+
+				// Làm tròn (nếu Phần Định Trị đủ dài)
+				if (i == 128 && PhanDinhTri.length() >= 112 + E) {
+					if (PhanDinhTri[i - 16 + E] == '1') {
+						i--;
+						while ((getBit(data[i / INTLENGT], i % INTLENGT) == 1) && (i > 15)) {
+							data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
+							i--;
+						}
+						data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+					}
+				}
+				return;
+			}
+
+			
+
+			// Lưu giá trị mũ vô Qfloat với TH bình thường
 			for (int i = 15; i > 0; i--) {
-				if (Point % 2 == 1) { data[0] = setBit1(data[i / INTLENGT], i % INTLENGT); }
-				Point /= 2;
+				if (E % 2 == 1) { data[0] = setBit1(data[i / INTLENGT], i % INTLENGT); }
+				E /= 2;
 			}
 
 			// Lưu Phần Định Trị vô Qfloat
@@ -440,6 +517,9 @@ void Qfloat::ScanQfloat() {
 			// Đổi Phần Nguyên và Phần Thập Phân ra chuỗi nhị phân lưu vào biến Phần Định Trị
 			// Dùng biến xét vị trí dấu chấm thành biến xét mũ, đếm giá trị mũ
 			if ((PhanNguyen == "0") || (PhanNguyen == "")) {
+
+				if (PhanThapPhan == "0") { return; }
+
 				for (int i = 0; (i < 122) && (PhanThapPhan != "0"); i++) {
 
 					int length = PhanThapPhan.length();
@@ -499,20 +579,58 @@ void Qfloat::ScanQfloat() {
 				}
 			}
 
-			// Xét TH mũ quá lớn hoặc quá nhỏ
-			if ((Point < -16383) || (Point > 16383)) {
-				cout << "*****************************************\n";
-				cout << "Thong bao: Tran so!\n";
-				cout << "*****************************************\n";
+			//Xét TH mũ quá lớn hoặc quá nhỏ
+				if ((Point < (-16383 - 112)) || (Point > 16383)) {
+					cout << "*****************************************\n";
+					cout << "Thong bao: Tran so!\n";
+					cout << "*****************************************\n";
+					return;
+				}
+
+			// Cộng số mũ với 16383 để ra giá trị E
+			int E = 16383 + Point;
+
+			//TH đặc biệt: normalized number
+			if (E < 0) {
+
+				// Nhập phần định trị cho normalized number
+				int i = 0;
+
+				for (i = 16 - E; (i < 128) && (i - 16 + E < PhanDinhTri.length()); i++) {
+					if (PhanDinhTri[i - 16 + E] == '1') {
+						data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+					}
+					else {
+						if (PhanDinhTri[i - 16 + E] == '0') {}
+						else {
+							cout << "*****************************************\n";
+							cout << "Thong bao: Chuoi so ban nhap sai ky tu!\n";
+							cout << "*****************************************\n";
+							return;
+						}
+					}
+				}
+
+				// Làm tròn (nếu Phần Định Trị đủ dài)
+				if (i == 128 && PhanDinhTri.length() >= 112 + E) {
+					if (PhanDinhTri[i - 16 + E] == '1') {
+						i--;
+						while ((getBit(data[i / INTLENGT], i % INTLENGT) == 1) && (i > 15)) {
+							data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
+							i--;
+						}
+						data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+					}
+				}
 				return;
 			}
 
-			// Cộng số mũ với 16383 để ra giá trị E
-			Point += 16383;
 
+
+			// Lưu giá trị mũ vô Qfloat với TH bình thường
 			for (int i = 15; i > 0; i--) {
-				if (Point % 2 == 1) { data[0] = setBit1(data[i / INTLENGT], i % INTLENGT); }
-				Point /= 2;
+				if (E % 2 == 1) { data[0] = setBit1(data[i / INTLENGT], i % INTLENGT); }
+				E /= 2;
 			}
 
 			// Lưu Phần Định Trị vô Qfloat
@@ -536,17 +654,26 @@ void Qfloat::ScanQfloat() {
 				}
 			}
 
-			//TH làm tròn bị tràn số
+			//TH làm tròn bị tràn số ra số vô cùng ( 1/0  1111111111111111  0000000000........)
 			int test = 0;
-			for (int i = 0; i < 128; i++) {
+			for (int i = 16; i < 128; i++) {
 				test += getBit(data[i / INTLENGT], i % INTLENGT);
 				if (test > 0) { break; }
 			}
 			if (test == 0) {
-				cout << "*****************************************\n";
-				cout << "Thong bao: Tran so!\n";
-				cout << "*****************************************\n";
-				return;
+
+				int test2 = 0;
+
+				for (int i = 1; i < 16; i++) {
+					test2 += getBit(data[i / INTLENGT], i % INTLENGT);
+				}
+
+				if (test2 == 15) {
+					cout << "*****************************************\n";
+					cout << "Thong bao: Tran so!\n";
+					cout << "*****************************************\n";
+					return;
+				}
 			}
 
 		}
@@ -573,7 +700,7 @@ void Qfloat::PrintQfloat()
 			if ((i + 4) % 4 == 0)
 				cout << " ";
 			if (i == 16) cout << "  ";
-			cout << getBit(this->data[i / 4], i % 4);
+			cout << getBit(this->data[i / INTLENGT], i % INTLENGT);
 		}
 	}
 	if (radix == 10)
