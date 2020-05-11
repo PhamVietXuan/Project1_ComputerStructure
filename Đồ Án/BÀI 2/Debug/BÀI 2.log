@@ -1,0 +1,34 @@
+﻿  Qfloat .cpp
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(73,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(133,51): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(149,36): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(171,38): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(187,31): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(232,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(278,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(289,30): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(302,32): warning C4018: '>': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(332,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(344,32): warning C4018: '>': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(372,47): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(388,42): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(412,38): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(456,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(470,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(534,32): warning C4018: '>': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(565,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(577,32): warning C4018: '>': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(605,47): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(621,42): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(645,38): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(757,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(791,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(828,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(839,28): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(850,30): warning C4018: '>': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(880,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(892,30): warning C4018: '>': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(919,36): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(954,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PhamVietXuan\Downloads\Qfloat .cpp(956,20): warning C4018: '<': signed/unsigned mismatch
+  BÀI 2.vcxproj -> E:\HỌC TẬP\Kỳ 2 -K2019-2020\Kiến trúc máy tính và hợp ngữ\Project\Project1\Đồ Án\Debug\BÀI 2.exe

@@ -19,7 +19,6 @@ public:
 	}
 	~floatingPoint()
 	{
-		delete[] this;
 	}
 	void ScanQfloat();
 	bool* DecToBin();
