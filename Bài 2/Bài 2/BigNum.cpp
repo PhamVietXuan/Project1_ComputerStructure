@@ -1,5 +1,7 @@
-#include "BigNum.h"
-
+﻿#include "BigNum.h"
+//Hàm chuyển đổi chuỗi nhị phân qua nhị phân lưu trong bit int
+//Input: Chuỗi nhị phân
+//Output: bit int có lưu giá trị chuỗi nhị phân
 int binToDec(string bit)//convert binary to integer number
 // bit.length() = 15: exponent
 {
@@ -11,6 +13,9 @@ int binToDec(string bit)//convert binary to integer number
     return x;
 }
 
+//Hàm chuyển đổi bit int có lưu giá trị nhị phân qua chuỗi nhị phân
+//Input: bit int có lưu giá trị chuỗi nhị phân
+//Output: Chuỗi nhị phân
 string decToBin(string dec)//convert decimal number to binary number(string)
 {
     string bin = "";
@@ -25,7 +30,9 @@ string decToBin(string dec)//convert decimal number to binary number(string)
     return bin;
 }
 
-
+//Hàm chuyển chuỗi số thập phân qua kiểu int
+//Input: Chuỗi số thập phân
+//Output: Giá trị thập phân kiểu int
 int stringToInt(string numStr)// convert a string to number 
 {
     int num = 0;
@@ -56,6 +63,9 @@ int stringToInt(string numStr)// convert a string to number
     return dauAm * num;
 }
 
+//Hàm chuyển đổi số thập phân kiểu int ra dạng chuỗi
+//Input: Gia trị thạp phân kieur int
+//Output: Dạng chuỗi
 string intToString(int num)
 {
     int n = num;
@@ -69,6 +79,9 @@ string intToString(int num)
 }
 
 
+//Hàm nhân chuỗi với 2
+//Intput: Chuỗi số ban đầu
+//Output: Chuỗi số sau khi nhân 2
 string nhanChuoiVoi2(string bigNum)//multiple a string by 2
 {
     string kq;
@@ -112,6 +125,9 @@ string nhanChuoiVoi2(string bigNum)//multiple a string by 2
     return kq;
 }
 
+//Hàm chia lấy phần nguyên chuỗi với 2
+//Input: Chuỗi só ban đầu
+//Output: Chuỗi số sau khi chia nguyên với 2
 string div2(string bigNum)
 {
     int dau = 1;
@@ -151,11 +167,17 @@ string div2(string bigNum)
     return kq;
 }
 
+//Hàm chia lấy phần dư chuỗi với 2
+//Input: Chuỗi số ban đầu
+//Output: Giá trị dư của chuỗi sau khi chia 2
 int mod2(string bigNum)
 {
     return ((bigNum[bigNum.size() - 1] - '0') % 2);
 }
 
+// Hàm chia chuỗi với 2 dạng sô thực
+//Input: Chuỗi só ban đầu
+//Output: Chuỗi số sau khi chia 2
 string chia2(string bigNum)
 {
     if (bigNum == "0") return "0";
@@ -219,6 +241,10 @@ string chia2(string bigNum)
     return kq;
 }
 
+//Hàm 2^n
+//Input: Mũ n
+//Output: Giá trị 2^n
+//Nếu n>0 nhân n lần với 2, n<0 chia n lần với 2, n=0 giá trị bằng 1
 string pow(int n)
 {
     if (n == 0) return "1";
@@ -243,6 +269,9 @@ string pow(int n)
 }
 
 
+//Hàm cộng 2 chuỗi số
+//Input: Chuỗi số a, b
+//Output: Chuỗi số mang kết quả phép cộng trên
 string addFloat(string a, string b)
 {
 
@@ -278,6 +307,9 @@ string addFloat(string a, string b)
     return res;
 }
 
+//Hàm đổi nhị phân sang thập phân của Qfloat
+//Input: Qfloat được lưu trữ dạng nhị phân
+//Output: Trả về dạng chuỗi kí tự giá trị thập phân
 string binToQfloat(int bin[4])
 {
     string kq = "";
@@ -329,11 +361,17 @@ string binToQfloat(int bin[4])
     return kq;
 }
 
+//Ham gán 1 vào vị trí bit i của x
+//Input:  Giá trị Int và vị trí i cần gán bit 1
+//Output: Giá trị x sau khi đc gán bit 1 vào vị trí bit i
 int setBit1(int x, int i)
 {
     return ((1 << (31 - i)) | x);
 }
 
+//Hàm lấy bit i từ x
+//Input: Giá trị Int và vị trí i cần lấy bit
+//Output: Giá trị bit tại vị trí bit i của x
 int getBit(int x, int i)
 {
     return ((x >> (31 - i)) & 1);
