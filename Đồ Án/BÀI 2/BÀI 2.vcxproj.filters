@@ -15,22 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\PhamVietXuan\Downloads\Qfloat.h">
+    <ClCompile Include="Qfloat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BigNum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bài-2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Qfloat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\PhamVietXuan\Downloads\BigNum.h">
+    <ClInclude Include="BigNum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\PhamVietXuan\Downloads\BigNum.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\PhamVietXuan\Downloads\Bài-2.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\PhamVietXuan\Downloads\Qfloat .cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
+    <Text Include="input.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
