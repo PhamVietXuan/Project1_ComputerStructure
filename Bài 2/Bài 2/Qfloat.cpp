@@ -20,7 +20,10 @@ void Qfloat::ScanQfloat(int radix, string scan) {
 
 	//2. TH1: Ngoại lệ
 	if ((radix != 2) && (radix != 10)) {
-		Exception = 1; //"Thong bao: He co so ban nhap khong thoa!
+		//"Thong bao: He co so ban nhap khong thoa!
+		for (int i = 0; i < 17; i++) {
+			data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+		}
 		return;
 	}
 
@@ -29,12 +32,18 @@ void Qfloat::ScanQfloat(int radix, string scan) {
 
 		// Xét trường hợp không thoả điều kiện (chuỗi ngắn hơn 17 kí tự)
 		if (scan.length() < 17) {
-			Exception = 1; //"Thong bao: He co so ban nhap khong thoa!
+			//"Thong bao: He co so ban nhap khong thoa!
+			for (int i = 0; i < 17; i++) {
+				data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+			}
 			return;
 		}
 
 		if (scan.length() > 128) {
-			Exception = 1;//"Thong bao: He co so ban nhap khong thoa!
+			//"Thong bao: He co so ban nhap khong thoa!
+			for (int i = 0; i < 17; i++) {
+				data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+			}
 			return;
 		}
 
@@ -44,12 +53,15 @@ void Qfloat::ScanQfloat(int radix, string scan) {
 		for (i = 0; (i < 128) && (i < scan.length()); i++) {
 
 			if (scan[i] == '1') {
-				data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+				data[i / 32] = setBit1(data[i / 32], i % 32);
 			}
 			else {
 				if (scan[i] == '0') {}
 				else {
-					Exception = 1;//"Thong bao: He co so ban nhap khong thoa!
+					//"Thong bao: He co so ban nhap khong thoa!
+					for (int i = 0; i < 17; i++) {
+						data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+					}
 					return;
 				}
 			}
@@ -73,7 +85,10 @@ void Qfloat::ScanQfloat(int radix, string scan) {
 					}
 
 					else {
-						Exception = 1;//"Thong bao: He co so ban nhap khong thoa!
+						//"Thong bao: He co so ban nhap khong thoa!
+						for (int i = 0; i < 17; i++) {
+							data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+						}
 						return;
 					}
 				}
@@ -85,7 +100,10 @@ void Qfloat::ScanQfloat(int radix, string scan) {
 
 		// Dò trường hợp chuỗi nhập sai
 		if ((count > 1) || (count2 > 1)) {
-			Exception = 1;//"Thong bao: He co so ban nhap khong thoa!
+			//"Thong bao: He co so ban nhap khong thoa!
+			for (int i = 0; i < 17; i++) {
+				data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+			}
 			return;
 		}
 		// TH chuỗi toàn số 0 -> số 0
@@ -94,7 +112,7 @@ void Qfloat::ScanQfloat(int radix, string scan) {
 		// TH chuỗi có dấu đằng trước, đồng thời lưu giá trị dấu vào Qfloat
 		if ((scan[0] == '-') || (scan[0] == '+')) {
 
-			if (scan[0] == '-') { data[0] = setBit1(data[0 / INTLENGT], 0 % INTLENGT); }
+			if (scan[0] == '-') { data[0] = setBit1(data[0 / 32], 0 % 32); }
 			scan.erase(0, 1);
 		}
 
@@ -181,7 +199,10 @@ void Qfloat::ScanQfloat(int radix, string scan) {
 
 		// Xét TH mũ quá lớn hoặc quá nhỏ
 		if ((Point < (-16383 - 112)) || (Point > 16383)) {
-			Exception = 2; //"Thong bao: Tran So!
+			//"Thong bao: Tran So!
+			for (int i = 0; i < 17; i++) {
+				data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+			}
 			return;
 		}
 
@@ -196,12 +217,15 @@ void Qfloat::ScanQfloat(int radix, string scan) {
 
 			for (i = 16 - E; (i < 128) && (i - 16 + E < PhanDinhTri.length()); i++) {
 				if (PhanDinhTri[i - 16 + E] == '1') {
-					data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+					data[i / 32] = setBit1(data[i / 32], i % 32);
 				}
 				else {
 					if (PhanDinhTri[i - 16 + E] == '0') {}
 					else {
-						Exception = 1; //"Thong bao: He co so ban nhap khong thoa!
+						//"Thong bao: He co so ban nhap khong thoa!
+						for (int i = 0; i < 17; i++) {
+							data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+						}
 						return;
 					}
 				}
@@ -211,11 +235,11 @@ void Qfloat::ScanQfloat(int radix, string scan) {
 			if (i == 128 && PhanDinhTri.length() >= 112 + E) {
 				if (PhanDinhTri[i - 16 + E] == '1') {
 					i--;
-					while ((getBit(data[i / INTLENGT], i % INTLENGT) == 1) && (i > 15)) {
-						data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
+					while ((getBit(data[i / 32], i % 32) == 1) && (i > 15)) {
+						data[i / 32] = data[i / 32] ^ (1 << (32 - 1 - i % 32));
 						i--;
 					}
-					data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+					data[i / 32] = setBit1(data[i / 32], i % 32);
 				}
 			}
 			return;
@@ -225,7 +249,7 @@ void Qfloat::ScanQfloat(int radix, string scan) {
 
 		// Lưu giá trị mũ vô Qfloat với TH bình thường
 		for (int i = 15; i > 0; i--) {
-			if (E % 2 == 1) { data[0] = setBit1(data[i / INTLENGT], i % INTLENGT); }
+			if (E % 2 == 1) { data[0] = setBit1(data[i / 32], i % 32); }
 			E /= 2;
 		}
 
@@ -234,7 +258,7 @@ void Qfloat::ScanQfloat(int radix, string scan) {
 
 		for (i = 16; (i < 128) && (i - 16 < PhanDinhTri.length()); i++) {
 			if (PhanDinhTri[i - 16] == '1') {
-				data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+				data[i / 32] = setBit1(data[i / 32], i % 32);
 			}
 		}
 
@@ -242,11 +266,11 @@ void Qfloat::ScanQfloat(int radix, string scan) {
 		if (i == 128 && PhanDinhTri.length() >= 112) {
 			if (PhanDinhTri[i] == '1') {
 				i--;
-				while ((getBit(data[i / INTLENGT], i % INTLENGT) == 1) && (i > 15)) {
-					data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
+				while ((getBit(data[i / 32], i % 32) == 1) && (i > 15)) {
+					data[i / 32] = data[i / 32] ^ (1 << (32 - 1 - i % 32));
 					i--;
 				}
-				data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+				data[i / 32] = setBit1(data[i / 32], i % 32);
 			}
 		}
 
@@ -263,23 +287,32 @@ void Qfloat::ScanQfloat(int radix, int Dau, int E, string F) {
 
 	//2. TH1: Ngoại lệ
 	if ((radix != 2)) {
-		Exception = 1; //"Thong bao: He co so ban nhap khong thoa!
+		//"Thong bao: He co so ban nhap khong thoa!
+		for (int i = 0; i < 17; i++) {
+			data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+		}
 		return;
 	}
 
 	//3. Th2: TH cơ số 2 dạng (+/-) 1.F*2^E
 	if ((Dau != 0) && (Dau != 1)) {
-		Exception = 1; //"Thong bao: He co so ban nhap khong thoa!
+		//"Thong bao: He co so ban nhap khong thoa!
+		for (int i = 0; i < 17; i++) {
+			data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+		}
 		return;
 	}
 
 	if ((E < (-16383 - 112)) || (E > 16383)) {
-		Exception = 2; //"Thong bao: Tran So!
+		//"Thong bao: Tran So!
+		for (int i = 0; i < 17; i++) {
+			data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+		}
 		return;
 	}
 
 	// Nhập giá trị dấu vô Qfloat
-	if (Dau == 1) { data[0] = setBit1(data[0 / INTLENGT], 0 % INTLENGT); }
+	if (Dau == 1) { data[0] = setBit1(data[0 / 32], 0 % 32); }
 
 	// Nhập giá trị E = Mũ + 16383 vô Qfloat
 	E += 16383;
@@ -292,12 +325,15 @@ void Qfloat::ScanQfloat(int radix, int Dau, int E, string F) {
 
 		for (i = 16 - E; (i < (128)) && ((i - 16 + E) < F.length()); i++) {
 			if (F[i - 16 + E] == '1') {
-				data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+				data[i / 32] = setBit1(data[i / 32], i % 32);
 			}
 			else {
 				if (F[i - 16 + E] == '0') {}
 				else {
-					Exception = 1; //"Thong bao: He co so ban nhap khong thoa!
+					//"Thong bao: He co so ban nhap khong thoa!
+					for (int i = 0; i < 17; i++) {
+						data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+					}
 					return;
 				}
 			}
@@ -307,11 +343,11 @@ void Qfloat::ScanQfloat(int radix, int Dau, int E, string F) {
 		if (i == 128 + E && F.length() >= 112 + E) {
 			if (F[i - 16 + E] == '1') {
 				i--;
-				while ((getBit(data[i / INTLENGT], i % INTLENGT) == 1) && (i > 15)) {
-					data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
+				while ((getBit(data[i / 32], i % 32) == 1) && (i > 15)) {
+					data[i / 32] = data[i / 32] ^ (1 << (32 - 1 - i % 32));
 					i--;
 				}
-				data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+				data[i / 32] = setBit1(data[i / 32], i % 32);
 			}
 		}
 		return;
@@ -319,7 +355,7 @@ void Qfloat::ScanQfloat(int radix, int Dau, int E, string F) {
 
 	// Nhập mũ với TH bình thường
 	for (int i = 15; i > 0; i--) {
-		if (E % 2 == 1) { data[0] = setBit1(data[i / INTLENGT], i % INTLENGT); }
+		if (E % 2 == 1) { data[0] = setBit1(data[i / 32], i % 32); }
 		E /= 2;
 	}
 
@@ -328,12 +364,15 @@ void Qfloat::ScanQfloat(int radix, int Dau, int E, string F) {
 
 	for (i = 16; (i < 128) && (i - 16 < F.length()); i++) {
 		if (F[i - 16] == '1') {
-			data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+			data[i / 32] = setBit1(data[i / 32], i % 32);
 		}
 		else {
 			if (F[i - 16] == '0') {}
 			else {
-				Exception = 1; //"Thong bao: He co so ban nhap khong thoa!
+				//"Thong bao: He co so ban nhap khong thoa!
+				for (int i = 0; i < 17; i++) {
+					data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+				}
 				return;
 			}
 		}
@@ -343,11 +382,11 @@ void Qfloat::ScanQfloat(int radix, int Dau, int E, string F) {
 	if (i == 128 && F.length() >= 112 + E) {
 		if (F[i - 16 + E] == '1') {
 			i--;
-			while ((getBit(data[i / INTLENGT], i % INTLENGT) == 1) && (i > 15)) {
-				data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
+			while ((getBit(data[i / 32], i % 32) == 1) && (i > 15)) {
+				data[i / 32] = data[i / 32] ^ (1 << (32 - 1 - i % 32));
 				i--;
 			}
-			data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+			data[i / 32] = setBit1(data[i / 32], i % 32);
 		}
 	}
 
@@ -363,14 +402,20 @@ void Qfloat::ScanQfloat(int radix, int Dau, int X, string PhanNguyen, string Pha
 
 	//2. TH1: Ngoại lệ
 	if ((radix != 10)) {
-		Exception = 1; //"Thong bao: He co so ban nhap khong thoa!
+		//"Thong bao: He co so ban nhap khong thoa!
+		for (int i = 0; i < 17; i++) {
+			data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+		}
 		return;
 	}
 
 	//3. Th2: TH cơ số 10 dạng (+/-) A.B*10^X
 
 	if ((Dau != 0) && (Dau != 1)) {
-		Exception = 1; //"Thong bao: He co so ban nhap khong thoa!
+		//"Thong bao: He co so ban nhap khong thoa!
+		for (int i = 0; i < 17; i++) {
+			data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+		}
 		return;
 	}
 
@@ -378,7 +423,10 @@ void Qfloat::ScanQfloat(int radix, int Dau, int X, string PhanNguyen, string Pha
 
 	for (int i = 0; i < PhanNguyen.length(); i++) {
 		if ((PhanNguyen[i] < '0') || (PhanNguyen[i] > '9')) {
-			Exception = 1; //"Thong bao: He co so ban nhap khong thoa!
+			//"Thong bao: He co so ban nhap khong thoa!
+			for (int i = 0; i < 17; i++) {
+				data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+			}
 			return;
 		}
 
@@ -387,7 +435,10 @@ void Qfloat::ScanQfloat(int radix, int Dau, int X, string PhanNguyen, string Pha
 
 	for (int i = 0; i < PhanThapPhan.length(); i++) {
 		if ((PhanThapPhan[i] < '0') || (PhanThapPhan[i] > '9')) {
-			Exception = 1; //"Thong bao: He co so ban nhap khong thoa!
+			//"Thong bao: He co so ban nhap khong thoa!
+			for (int i = 0; i < 17; i++) {
+				data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+			}
 			return;
 		}
 
@@ -398,7 +449,7 @@ void Qfloat::ScanQfloat(int radix, int Dau, int X, string PhanNguyen, string Pha
 	if (CountNotZero == 0) { return; }
 
 	// Xét dấu, lưu giá trị vào Qfloat
-	if (Dau == 1) { data[0] = setBit1(data[0 / INTLENGT], 0 % INTLENGT); }
+	if (Dau == 1) { data[0] = setBit1(data[0 / 32], 0 % 32); }
 
 	// Xét giá trị mũ, để đặt lại dấu chấm
 	if (X > 0) {
@@ -500,7 +551,10 @@ void Qfloat::ScanQfloat(int radix, int Dau, int X, string PhanNguyen, string Pha
 
 	//Xét TH mũ quá lớn hoặc quá nhỏ
 	if ((Point < (-16383 - 112)) || (Point > 16383)) {
-		Exception = 2; //"Thong bao: Tran So!
+		//"Thong bao: Tran So!
+		for (int i = 0; i < 17; i++) {
+			data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+		}
 		return;
 	}
 
@@ -515,12 +569,15 @@ void Qfloat::ScanQfloat(int radix, int Dau, int X, string PhanNguyen, string Pha
 
 		for (i = 16 - E; (i < 128) && (i - 16 + E < PhanDinhTri.length()); i++) {
 			if (PhanDinhTri[i - 16 + E] == '1') {
-				data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+				data[i / 32] = setBit1(data[i / 32], i % 32);
 			}
 			else {
 				if (PhanDinhTri[i - 16 + E] == '0') {}
 				else {
-					Exception = 1; //"Thong bao: He co so ban nhap khong thoa!
+					//"Thong bao: He co so ban nhap khong thoa!
+					for (int i = 0; i < 17; i++) {
+						data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+					}
 					return;
 				}
 			}
@@ -530,11 +587,11 @@ void Qfloat::ScanQfloat(int radix, int Dau, int X, string PhanNguyen, string Pha
 		if (i == 128 && PhanDinhTri.length() >= 112 + E) {
 			if (PhanDinhTri[i - 16 + E] == '1') {
 				i--;
-				while ((getBit(data[i / INTLENGT], i % INTLENGT) == 1) && (i > 15)) {
-					data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
+				while ((getBit(data[i / 32], i % 32) == 1) && (i > 15)) {
+					data[i / 32] = data[i / 32] ^ (1 << (32 - 1 - i % 32));
 					i--;
 				}
-				data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+				data[i / 32] = setBit1(data[i / 32], i % 32);
 			}
 		}
 		return;
@@ -544,7 +601,7 @@ void Qfloat::ScanQfloat(int radix, int Dau, int X, string PhanNguyen, string Pha
 
 	// Lưu giá trị mũ vô Qfloat với TH bình thường
 	for (int i = 15; i > 0; i--) {
-		if (E % 2 == 1) { data[0] = setBit1(data[i / INTLENGT], i % INTLENGT); }
+		if (E % 2 == 1) { data[0] = setBit1(data[i / 32], i % 32); }
 		E /= 2;
 	}
 
@@ -553,7 +610,7 @@ void Qfloat::ScanQfloat(int radix, int Dau, int X, string PhanNguyen, string Pha
 
 	for (i = 16; (i < 128) && (i - 16 < PhanDinhTri.length()); i++) {
 		if (PhanDinhTri[i - 16] == '1') {
-			data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+			data[i / 32] = setBit1(data[i / 32], i % 32);
 		}
 	}
 
@@ -561,18 +618,18 @@ void Qfloat::ScanQfloat(int radix, int Dau, int X, string PhanNguyen, string Pha
 	if (i == 128 && PhanDinhTri.length() >= 112) {
 		if (PhanDinhTri[i] == '1') {
 			i--;
-			while ((getBit(data[i / INTLENGT], i % INTLENGT) == 1) && (i > 15)) {
-				data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
+			while ((getBit(data[i / 32], i % 32) == 1) && (i > 15)) {
+				data[i / 32] = data[i / 32] ^ (1 << (32 - 1 - i % 32));
 				i--;
 			}
-			data[i / INTLENGT] = setBit1(data[i / INTLENGT], i % INTLENGT);
+			data[i / 32] = setBit1(data[i / 32], i % 32);
 		}
 	}
 
 	//TH làm tròn bị tràn số ra số vô cùng ( 1/0  1111111111111111  0000000000........)
 	int test = 0;
 	for (int i = 16; i < 128; i++) {
-		test += getBit(data[i / INTLENGT], i % INTLENGT);
+		test += getBit(data[i / 32], i % 32);
 		if (test > 0) { break; }
 	}
 	if (test == 0) {
@@ -580,11 +637,11 @@ void Qfloat::ScanQfloat(int radix, int Dau, int X, string PhanNguyen, string Pha
 		int test2 = 0;
 
 		for (int i = 1; i < 16; i++) {
-			test2 += getBit(data[i / INTLENGT], i % INTLENGT);
+			test2 += getBit(data[i / 32], i % 32);
 		}
 
 		if (test2 == 15) {
-			Exception = 2;//"Thong bao: Tran So!
+			//"Thong bao: Tran So!
 			return;
 		}
 	}
@@ -598,18 +655,6 @@ void Qfloat::ScanQfloat(int radix, int Dau, int X, string PhanNguyen, string Pha
 string Qfloat::PrintQfloat(int radix)
 {
 	stringstream Value;
-
-	//TH chuỗi bị nhập sai
-	if (Exception == 1) {
-		Value << " ";
-		return Value.str();
-	}
-
-	//TH chuỗi bị ràn số
-	if (Exception == 2) {
-		Value << " ";
-		return Value.str();
-	}
 
 	// TH hệ số yêu cầu xuất nhập sai
 	if (radix != 2 && radix != 10)
@@ -627,7 +672,7 @@ string Qfloat::PrintQfloat(int radix)
 			if ((i + 4) % 4 == 0)
 				Value << " ";
 			if (i == 16) Value << "  ";
-			Value << getBit(this->data[i / INTLENGT], i % INTLENGT);
+			Value << getBit(this->data[i / 32], i % 32);
 		}
 	}
 
@@ -710,7 +755,10 @@ void Qfloat::DecToBin(string scan) {
 				if ((scan[i] == '-') || (scan[i] == '+')) { count2++; }
 
 				else {
-					Exception = 1; //"Thong bao: He co so ban nhap khong thoa!
+					//"Thong bao: He co so ban nhap khong thoa!
+					for (int i = 0; i < 17; i++) {
+						data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+					}
 					return;
 				}
 			}
@@ -721,7 +769,10 @@ void Qfloat::DecToBin(string scan) {
 	}
 
 	if ((count > 1) || (count2 > 1)) {
-		Exception = 1; //"Thong bao: He co so ban nhap khong thoa!
+		//"Thong bao: He co so ban nhap khong thoa!
+		for (int i = 0; i < 17; i++) {
+			data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+		}
 		return;
 	}
 
@@ -729,7 +780,7 @@ void Qfloat::DecToBin(string scan) {
 
 	if ((scan[0] == '-') || (scan[0] == '+')) {
 
-		if (scan[0] == '-') { data[0] = data[0] | (1 << (INTLENGT - 1)); }
+		if (scan[0] == '-') { data[0] = data[0] | (1 << (32 - 1)); }
 		scan.erase(0, 1);
 	}
 
@@ -812,14 +863,17 @@ void Qfloat::DecToBin(string scan) {
 	}
 
 	if ((Point < -16383) || (Point > 16383)) {
-		Exception = 2; //"Thong bao: Tran So!
+		//"Thong bao: Tran So!
+		for (int i = 0; i < 17; i++) {
+			data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+		}
 		return;
 	}
 
 	Point += 16383;
 
 	for (int i = 15; i > 0; i--) {
-		if (Point % 2 == 1) { data[0] = data[0] | (1 << (INTLENGT - 1 - i)); }
+		if (Point % 2 == 1) { data[0] = data[0] | (1 << (32 - 1 - i)); }
 		Point /= 2;
 	}
 
@@ -827,28 +881,31 @@ void Qfloat::DecToBin(string scan) {
 
 	for (i = 16; (i < 128) && (i - 16 < PhanDinhTri.length()); i++) {
 		if (PhanDinhTri[i - 16] == '1') {
-			data[i / INTLENGT] = data[i / INTLENGT] | (1 << (INTLENGT - 1 - i % INTLENGT));
+			data[i / 32] = data[i / 32] | (1 << (32 - 1 - i % 32));
 		}
 	}
 
 	if (i == 128 && PhanDinhTri.length() >= 112) {
 		if (PhanDinhTri[i] == '1') {
 			i--;
-			while ((((data[i / INTLENGT] >> (INTLENGT - 1 - i)) & 1) == 1) && (i > 15)) {
-				data[i / INTLENGT] = data[i / INTLENGT] ^ (1 << (INTLENGT - 1 - i % INTLENGT));
+			while ((((data[i / 32] >> (32 - 1 - i)) & 1) == 1) && (i > 15)) {
+				data[i / 32] = data[i / 32] ^ (1 << (32 - 1 - i % 32));
 				i--;
 			}
-			data[i / INTLENGT] = data[i / INTLENGT] | (1 << (INTLENGT - 1 - i % INTLENGT));
+			data[i / 32] = data[i / 32] | (1 << (32 - 1 - i % 32));
 		}
 	}
 
 	int test = 0;
 	for (int i = 0; i < 128; i++) {
-		test += (data[i / INTLENGT] >> (INTLENGT - 1 - i)) & 1;
+		test += (data[i / 32] >> (32 - 1 - i)) & 1;
 		if (test > 0) { break; }
 	}
 	if (test == 0) {
-		Exception = 2;//"Thong bao: Tran So!
+		//"Thong bao: Tran so!
+		for (int i = 0; i < 17; i++) {
+			data[i / 32] = setBit1(data[i / 32], i % 32); //Trả về NaN
+		}
 		return;
 	}
 	return;

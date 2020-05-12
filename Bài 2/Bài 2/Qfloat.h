@@ -7,8 +7,7 @@ using namespace std;
 class Qfloat {
 private:
 	int data[4] = { 0 };
-	const int INTLENGT = 32;
-	int Exception = 0;
+	//int Exception = 0;
 public:
 	void ScanQfloat(int, string);
 	void ScanQfloat(int, int, int, string);

@@ -9,6 +9,6 @@ using namespace std;
 
 int main() {
 	Qfloat a;
-	a.ScanQfloat(10, 1, 5, "89", "125673");
+	a.ScanQfloat(2, "0100000000000000001000001100000000");
 	cout<<a.PrintQfloat(10);
 }
